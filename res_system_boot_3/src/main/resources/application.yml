@@ -1,0 +1,64 @@
+server:
+  address: 127.0.0.1
+  port: 8088
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dongwonsun@gmail.com
+    password: vrmhwsvrfoopamzm
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp
+      suffix: .jsp
+  data:
+    jpa:
+      repositories:
+        enabled: true
+    rest:
+      base-path: /api
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    database: oracle
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    platform: mssql
+    url: jdbc:oracle:thin:@127.0.0.1:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: pj09
+    password: 1111
+  devtools:
+    restart:
+      exclude: /static/**, /templates/**
+
+quartz:
+  enabled: true
+
+logging:
+  file: logs/application.log
+  level:
+    org.springframework.web: INFO
+    org.quartz.core: INFO
+    org.springframework.jdbc: error
+    org.hibernate.SQL: debug
+ 
+---
+spring.profiles: logging-daily
+logging:
+  config: classpath:logback-spring.xml
