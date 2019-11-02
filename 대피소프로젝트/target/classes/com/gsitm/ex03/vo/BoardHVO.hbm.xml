@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018. 5. 23 ???? 12:02:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gsitm.ex03.vo.BoardHVO" table="BOARDHVO">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <list name="boardReplyVOList" inverse="false" table="BOARDREPLYVO" lazy="true">
+            <key>
+                <column name="SERIALVERSIONUID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="com.gsitm.ex03.vo.BoardReplyVO" />
+        </list>
+        <property name="boardSeq" type="java.lang.String">
+            <column name="BOARDSEQ" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="hit" type="java.lang.String">
+            <column name="HIT" />
+        </property>
+        <property name="regDt" type="java.lang.String">
+            <column name="REGDT" />
+        </property>
+        <property name="regUser" type="java.lang.String">
+            <column name="REGUSER" />
+        </property>
+        <property name="updUser" type="java.lang.String">
+            <column name="UPDUSER" />
+        </property>
+        <property name="updDt" type="java.lang.String">
+            <column name="UPDDT" />
+        </property>
+        <property name="useYn" type="java.lang.String">
+            <column name="USEYN" />
+        </property>
+    </class>
+</hibernate-mapping>
